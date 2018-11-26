@@ -1,0 +1,144 @@
+<style>
+/* tot */
+.cap{
+  background-image: url("imatges_web/portada.jpeg");
+  background-size: cover;
+  border-radius: 10px;
+  font-size: 1vw;
+}
+.submit{
+  border-radius: 5px;
+  font-size: 1vw;
+}
+.introtext{
+  border-radius: 5px;
+  font-size: 1vw;
+}
+body{
+  font-family: 'Roboto', sans-serif;
+}
+.body-index{
+  font-family: 'Roboto', sans-serif;
+  padding:0;
+  margin:0;
+}
+
+/* Menu superior */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /* background-color: #800000; */
+}
+li {
+  float: left;
+  padding: 1vw 1vw;
+}
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+li b {
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Imatge gran hamburgueses */
+.container {
+  position: relative;
+  width: 100%;
+}
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+.middle {
+  transition: 5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+.container:hover .image {
+  /* opacity: 0.7; */
+  transition: 5s ease;
+  -webkit-filter: blur(10px); /* Safari 6.0 - 9.0 */
+  filter: blur(10px);
+}
+.container:hover .middle {
+  opacity: 1;
+}
+.text {
+  background-color: blur;
+  color: black;
+  font-size: 5vw;
+  padding: 16px 32px;
+}
+
+/* taula informació nutricional */
+table {
+  border-collapse: collapse;
+  width: 50%;
+}
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  /* padding: 8px; */
+}
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+/* boto preu elemets */
+.button-preu{
+  border-radius: 5px;
+  font-size: 1vw;
+}
+.button-esborra{
+  border-radius: 5px;
+  font-size: 1vw;
+}
+.button-compra{
+  border-radius: 5px;
+  font-size: 3vw;
+}
+
+
+
+/* peu de pàgina */
+footer {
+  font-size: 2vw;
+  padding: 10px 20px;
+  background: #ff9999;
+  color: white;
+  border-radius: 10px;
+  background-image: url("imatges_web/portada.jpeg");
+  background-size: cover;
+}
+
+/* comptador elements al carro */
+.dot {
+  height: 25px;
+  width: 25px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+}
+
+.mateixaLinia{
+  display: flex;
+  justify-content: flex-start; 
+}
+</style>
