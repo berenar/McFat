@@ -100,22 +100,6 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
-/* boto preu elemets */
-.button-preu{
-  border-radius: 5px;
-  font-size: 1vw;
-}
-.button-esborra{
-  border-radius: 5px;
-  font-size: 1vw;
-}
-.button-compra{
-  border-radius: 5px;
-  font-size: 3vw;
-}
-
-
-
 /* peu de pàgina */
 footer {
   font-size: 2vw;
@@ -140,5 +124,82 @@ footer {
 .mateixaLinia{
   display: flex;
   justify-content: flex-start; 
+}
+
+/*pestanya ajuda*/
+
+* {
+  box-sizing: border-box;
+}
+
+/* Style inputs */
+input[type=text], select, textarea {
+  border-radius: 5px;
+  width: 100%;
+  padding: 1px;
+  border: 1px solid #ccc;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: white;
+  border-radius: 10px; 
+  font-size: 2vw;
+}
+
+input[type=submit]:hover {
+  background-color: #808080;
+}
+
+/* Style the container/contact section */
+.container {
+  border-radius: 10px;
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+/* Create two columns that float next to eachother */
+.column {
+  float: left;
+  width: 50%;
+  margin-top: 6px;
+  padding: 20px;
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+.col-sm-6{
+  border:1px solid black;
+  padding:1vw;border-radius:10px;
+  background-color: #d9d9d9;
+}
+
+/*estils del tiquet*/
+.tiquet{
+  border-style: solid;
+  width: 50%;
+}
+.quadre_negre{
+background-color: black;
+color: white;
+ font-weight: bold;
+font-size: 10vw;
+text-align: center;
+}
+.mateixaLinia-justificat{
+  display: flex;
+  justify-content: flex-start;
 }
 </style>

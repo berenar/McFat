@@ -34,7 +34,7 @@ src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
 			<h1 style="padding: 0;margin: 0;font-size: 2vw;">A quin restaurant vols anar?</h1>
 			<div>
 				<?php if( $numfiles > 0 ){ ?>
-					<br><b style="font-size: 2vw">McFat de </b>
+					<br><b style="font-size: 2vw">McFat del carrer </b>
 					<form action="anar_a_restaurant.php" method="post">
 						<select name="carrer" style="border-radius: 5px; font-size: 2vw">
 							<?php
@@ -83,5 +83,9 @@ src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
 		</div>
 	</form>
 </div>
-
+<a target="_blank" rel="noopener noreferrer" 
+href="https://github.com/berenar">
+<img style="position: absolute; top: 0; right: 0; border: 0;"
+src="https://s3.amazonaws.com/github/ribbons/
+forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
 </body>

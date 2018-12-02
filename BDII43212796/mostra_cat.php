@@ -24,26 +24,22 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 >
 
 <h2 style="font-size: 3vw" style: align="center"><?php echo $nomCat ?></h2>
+<div class="container">
 <!-- ARTICLES -->
 <?php
 if ($numfilesA>0) {
   while ( $filaA=mysqli_fetch_array($resultatA)) {
-    echo "<div class=\"col-sm-3\" style=\"border:1px solid black;
-    padding:2vw; border-radius:10px\">";
+    echo "<div class=\"col-sm-3\" >";
     echo "<h3 style=\"font-size: 2vw;\">";
     echo $filaA['nomElem'];
-    echo " <br>(";
-        // obtenir l'estoc d'un article al restaurant actual
+    // obtenir l'estoc d'un article al restaurant actual
     $queryE="SELECT numEst FROM Estoc JOIN Restaurant ON
     id_element=".$filaA['id_element']. " AND adreca="."'".
     $_SESSION['carrer']."'";
     $resultatE=mysqli_query($con,$queryE);
     $filaE=mysqli_fetch_array($resultatE);
-    echo $filaE["numEst"];
-    echo " restants)";
-    echo "</h3>";
-    echo "<br><div class=\"col-sm-6\">";
     ?>
+    <p style="font-size:1vw"><?php echo $filaE["numEst"]." restants"; ?></p>
     <table style="font-size:1vw">
       <tr>
         <td>kcal</td>
@@ -59,9 +55,6 @@ if ($numfilesA>0) {
       </tr>
     </table>
     <?php
-    echo "</div>";
-    echo "<div class=\"col-sm-3\">";
-    echo "</div>";
     if ($filaE["numEst"]>0) {
       echo "<img  style=\"max-height: 150px; max-width: 200px;\"
       src=".$filaA['fotoArt']."><br><br>";
@@ -82,5 +75,8 @@ if ($numfilesA>0) {
     echo "</div>";
 
   }
+}else{
+  echo "No hi ha cap producte en aquesta categoria :(";
 }
 ?>
+</div>

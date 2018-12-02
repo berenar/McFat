@@ -20,11 +20,12 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 
 <body>
   <div class="row" align="center" style="padding: 3vw">
+    <div class="container">
     <?php
     if ($numfilesC>0) {
       while ($filaC=mysqli_fetch_array($resultatC)) {
         ?>
-        <div class="col-sm-4" style="border:1px solid black">
+        <div class="col-sm-4">
           <form action="mostra_cat.php" method="POST">
             <input type="hidden" name="id" value="<?php echo $filaC["id_categoria"] ?>">
             <input type="image" style="max-height: 150px; max-width: 200px;" 
@@ -35,7 +36,7 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
       }
     }
     ?>
-
+</div>
   </div>
 
 </body>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Temps de generació: 26-11-2018 a les 00:52:36
+-- Temps de generació: 02-12-2018 a les 20:18:39
 -- Versió del servidor: 10.1.37-MariaDB
 -- Versió de PHP: 7.2.12
 
@@ -86,7 +86,9 @@ CREATE TABLE `comanda` (
   `estat` char(50) COLLATE utf8_spanish_ci NOT NULL,
   `targeta` char(50) COLLATE utf8_spanish_ci DEFAULT NULL,
   `id_comanda` int(11) NOT NULL,
-  `id_restaurant` int(11) NOT NULL
+  `id_restaurant` int(11) NOT NULL,
+  `total` int(11) DEFAULT NULL,
+  `pagat` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
@@ -142,40 +144,46 @@ CREATE TABLE `estoc` (
 --
 
 INSERT INTO `estoc` (`numEst`, `id_restaurant`, `id_element`, `id_estoc`) VALUES
-(100, 1, 16, 1),
-(100, 1, 18, 2),
-(0, 1, 17, 3),
-(100, 1, 14, 4),
-(100, 1, 13, 5),
-(2, 1, 3, 6),
-(100, 2, 16, 7),
-(100, 2, 14, 8),
-(100, 2, 1, 9),
-(100, 3, 17, 10),
-(100, 3, 13, 11),
-(100, 3, 3, 12),
-(100, 4, 18, 13),
-(100, 4, 13, 14),
-(100, 4, 4, 15),
-(200, 5, 18, 16),
-(200, 5, 14, 17),
-(200, 5, 3, 18),
-(200, 6, 16, 21),
-(250, 6, 14, 22),
-(250, 6, 4, 24),
-(150, 7, 17, 25),
-(150, 7, 13, 26),
-(150, 7, 1, 27),
-(150, 8, 16, 28),
-(150, 8, 13, 29),
-(125, 8, 14, 30),
-(125, 8, 1, 31),
-(125, 9, 16, 32),
-(125, 9, 13, 33),
-(140, 9, 1, 34),
-(140, 10, 18, 35),
-(140, 10, 14, 36),
-(140, 10, 3, 37);
+(24, 1, 1, 48),
+(0, 1, 3, 49),
+(99, 1, 4, 50),
+(1, 1, 13, 51),
+(96, 1, 14, 52),
+(49, 1, 16, 53),
+(99, 1, 17, 54),
+(97, 1, 18, 55),
+(100, 2, 1, 56),
+(100, 2, 3, 57),
+(100, 2, 4, 58),
+(100, 2, 13, 59),
+(2, 2, 14, 60),
+(0, 2, 16, 61),
+(100, 2, 17, 62),
+(100, 2, 18, 63),
+(100, 3, 1, 64),
+(100, 3, 3, 65),
+(100, 3, 4, 66),
+(100, 3, 13, 67),
+(100, 3, 14, 68),
+(100, 3, 16, 69),
+(100, 3, 17, 70),
+(100, 3, 18, 71),
+(100, 4, 1, 72),
+(100, 4, 3, 73),
+(100, 4, 4, 74),
+(100, 4, 13, 75),
+(100, 4, 14, 76),
+(100, 4, 16, 77),
+(100, 4, 17, 78),
+(100, 4, 18, 79),
+(100, 5, 1, 80),
+(100, 5, 3, 81),
+(100, 5, 4, 82),
+(100, 5, 13, 83),
+(100, 5, 14, 84),
+(100, 5, 16, 85),
+(100, 5, 17, 86),
+(100, 5, 18, 87);
 
 -- --------------------------------------------------------
 
@@ -185,7 +193,13 @@ INSERT INTO `estoc` (`numEst`, `id_restaurant`, `id_element`, `id_estoc`) VALUES
 
 CREATE TABLE `historic` (
   `id_historic` int(11) NOT NULL,
-  `data` date NOT NULL
+  `data` date NOT NULL,
+  `estat` char(50) COLLATE utf8_spanish_ci NOT NULL,
+  `targeta` char(50) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `id_comanda` int(11) NOT NULL,
+  `id_restaurant` int(11) NOT NULL,
+  `total` int(11) NOT NULL,
+  `pagat` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
@@ -244,12 +258,7 @@ INSERT INTO `restaurant` (`id_restaurant`, `adreca`) VALUES
 (2, 'San Ildefonso'),
 (3, 'Buenavista'),
 (4, 'Prim'),
-(5, 'San Bernardo'),
-(6, 'Virgen de los Peligros'),
-(7, 'Hortaleza'),
-(8, 'Cuesta de la Vega'),
-(9, 'Segovia'),
-(10, 'La Cruz');
+(5, 'San Bernardo');
 
 -- --------------------------------------------------------
 
@@ -311,15 +320,15 @@ INSERT INTO `treballador` (`id_treballador`, `nomUsuari`, `contrasenya`, `id_res
 (5, 'GABRIELALONSO', 'contra6', 3),
 (6, 'GONZALOSIERRA', 'contra7', 4),
 (7, 'ALEJANDROPERICAS', 'contra8', 5),
-(8, 'MIGUELANGELVELA', 'contra9', 6),
-(9, 'JUANJOSESANTANA', 'contra10', 7),
-(10, 'MARIABORREGUERO', 'contra11', 8),
-(11, 'CAROLINAMERCADO', 'contra12', 9),
-(12, 'ALVAROVALDEZ', 'contra13', 10),
+(8, 'MIGUELANGELVELA', 'contra9', 2),
+(9, 'JUANJOSESANTANA', 'contra10', 3),
+(10, 'MARIABORREGUERO', 'contra11', 1),
+(11, 'CAROLINAMERCADO', 'contra12', 2),
+(12, 'ALVAROVALDEZ', 'contra13', 5),
 (13, 'YOLANDAECHEVERRIA', 'contra14', 3),
-(14, 'CONSUELOQUILES', 'contra15', 10),
-(15, 'ROSAZABALA', 'contra16', 1),
-(16, 'SUSANAPOLANCO', 'contra16', 1);
+(14, 'CONSUELOQUILES', 'contra15', 5),
+(15, 'ROSAZABALA', 'contra16', 4),
+(16, 'SUSANAPOLANCO', 'contra16', 4);
 
 --
 -- Índexs per a les taules bolcades
@@ -413,7 +422,7 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT per la taula `comanda`
 --
 ALTER TABLE `comanda`
-  MODIFY `id_comanda` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_comanda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 
 --
 -- AUTO_INCREMENT per la taula `element`
@@ -425,19 +434,19 @@ ALTER TABLE `element`
 -- AUTO_INCREMENT per la taula `estoc`
 --
 ALTER TABLE `estoc`
-  MODIFY `id_estoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id_estoc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT per la taula `historic`
 --
 ALTER TABLE `historic`
-  MODIFY `id_historic` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_historic` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT per la taula `quantitat`
 --
 ALTER TABLE `quantitat`
-  MODIFY `id_quantitat` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_quantitat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 
 --
 -- AUTO_INCREMENT per la taula `restaurant`
@@ -500,6 +509,19 @@ ALTER TABLE `r_menu_article`
 --
 ALTER TABLE `treballador`
   ADD CONSTRAINT `treballador_ibfk_1` FOREIGN KEY (`id_restaurant`) REFERENCES `restaurant` (`id_restaurant`);
+
+DELIMITER $$
+--
+-- Esdeveniments
+--
+CREATE DEFINER=`root`@`localhost` EVENT `COMANDA_A_HISTORIC` ON SCHEDULE EVERY 60 SECOND STARTS '2018-12-02 12:47:28' ON COMPLETION NOT PRESERVE ENABLE DO BEGIN
+INSERT INTO HISTORIC (data,estat,targeta,id_comanda,id_restaurant,total,pagat)
+SELECT CURRENT_DATE(),estat,targeta,id_comanda,id_restaurant,total,pagat FROM COMANDA WHERE PAGAT='0';
+DELETE QUANTITAT FROM QUANTITAT INNER JOIN COMANDA WHERE QUANTITAT.id_comanda=COMANDA.id_comanda and COMANDA.pagat='0';
+DELETE FROM COMANDA WHERE pagat='0';
+END$$
+
+DELIMITER ;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,0 +1,14 @@
+DELIMITER |
+CREATE EVENT COMANDA_A_HISTORIC
+ON SCHEDULE 
+EVERY 60 SECOND
+DO
+BEGIN
+
+INSERT INTO HISTORIC (data,estat,targeta,id_comanda,id_restaurant,total,pagat)
+SELECT CURRENT_DATE(),estat,targeta,id_comanda,id_restaurant,total,pagat FROM COMANDA WHERE PAGAT='0';
+DELETE QUANTITAT FROM QUANTITAT INNER JOIN COMANDA WHERE QUANTITAT.id_comanda=COMANDA.id_comanda and COMANDA.pagat='0';
+DELETE FROM COMANDA WHERE pagat='0';
+
+END |
+DELIMITER ;
